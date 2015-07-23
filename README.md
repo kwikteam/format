@@ -109,14 +109,20 @@ Examples:
 ```
 20160101.phy/traces/20160101_1.n5  # symlink to ./20160101_1.n5
 
-20160101.phy/traces/20160101_2.dat  # symlink to ./20160101_2.dat
+20160101.phy/traces/20160101_2.flat  # symlink to ./20160101_2.flat
+20160101.phy/traces/20160101_2.timestamps # always in seconds (float64). 
+20160101.phy/traces/20160101_2.timestamp_samples # if present, specifies which sample the timestamps apply to (uint64)
+20160101.phy/traces/20160101_2.row_names # optional text file
+20160101.phy/traces/20160101_2.column_names # optional text file
 20160101.phy/traces/20160101_2.format
 {
-    "file_format": "dat",
+    "file_format": "flat",
     "byte_offset": 0,
     "data_type": "int16",
+    "shape": [120, 123456], # if last entry is -1, computed from file size as in numpy
 }
 ```
+
 
 ### Supported formats
 
