@@ -118,6 +118,16 @@ Examples:
 }
 ```
 
+### Supported formats
+
+* DAT
+* TXT (`np.loadtxt()`)
+* NPY (`np.load()`)
+* NS5
+* PLX
+* see http://neo.readthedocs.org/en/latest/io.html
+
+
 ## API
 
 * TODO: how the user specifies the parameters/probe (PRM? PRB)? Where these files should be stored? Should the parameters be imported in the JSON? => duplication problem. Any traces/spike detection/clustering parameter should be stored in a single file.
