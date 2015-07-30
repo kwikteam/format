@@ -96,43 +96,13 @@ Some metadata objects (by default, all are in the main metadata file):
     * a JSON array,
     * or an object with a `path` attribute.
 
-* The `path` refers to an **array subdirectory** containing a set of files.
+* The `path` refers to a file
 * The `path` is relative to the phy directory.
-* Every array is defined by one or several files in the array subdirectory. The files share the same basename.
-* (Optional) The `.data` or `.dat` file is a flat binary array with no header.
-* (Optional) The `.ns5` (or any other supported file) is a binary array that can be read by the `read_ns5()` function (or similar).
-* (Optional) The `.metadata` file contains some metadata about the array. TODO: do we need this?
-* (Optional) The `.format` file contains some information required by the `read_data()` function.
-
-Examples:
-
-```
-20160101.phy/traces/20160101_1.n5  # symlink to ./20160101_1.n5
-
-20160101.phy/traces/20160101_2.flat  # symlink to ./20160101_2.flat
-20160101.phy/traces/20160101_2.timestamps # always in seconds (float64). 
-20160101.phy/traces/20160101_2.timestamp_samples # if present, specifies which sample the timestamps apply to (uint64)
-20160101.phy/traces/20160101_2.row_names # optional text file
-20160101.phy/traces/20160101_2.column_names # optional text file
-20160101.phy/traces/20160101_2.format
-{
-    "file_format": "flat",
-    "byte_offset": 0,
-    "data_type": "int16",
-    "shape": [120, 123456], # if last entry is -1, computed from file size as in numpy
-}
-```
-
-
-### Supported formats
-
-* DAT
-* TXT (`np.loadtxt()`)
-* NPY (`np.load()`)
-* NS5
-* PLX
-* see http://neo.readthedocs.org/en/latest/io.html
-
+* Every array is defined by one file
+* The file extension defines the format for the array
+* Supported formats: txt, npy, ns5, Neo formats <http://neo.readthedocs.org/en/latest/io.html>...
+* New tar format: first archived file is format.ini with comment with link to description, array description, then one or several flat binary files
+    * array description in ini: dtype, shape, labels
 
 ## API
 
