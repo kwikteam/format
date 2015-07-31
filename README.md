@@ -107,3 +107,29 @@ Some metadata objects (by default, all are in the main metadata file):
 ## API
 
 * TODO: how the user specifies the parameters/probe (PRM? PRB)? Where these files should be stored? Should the parameters be imported in the JSON? => duplication problem. Any traces/spike detection/clustering parameter should be stored in a single file.
+
+```
+
+_read_array(path)
+_write_array(path, array)
+
+
+exp = Experiment(metadata_path=None, metadata_dict=None, base_dir=None)
+
+exp.base_dir  # the path (absolute or relative) to the root.
+              # all relative paths are made relative to the base dir
+
+exp.metadata  # the JSON dictionary
+exp.read_metadata(alias_or_path)  # return a dict
+exp.write_metadata(alias_or_path, metadata)  # update the current metadata
+                                             # dict and save it
+
+exp._resolve_alias(alias)  # return a relative path
+exp.read_array(alias_or_path)  # return an array
+exp.write_array(alias_or_path, array)
+
+Examples
+exp.read_array('0/spike_times')
+exp.read_array('0/spike_times')
+
+```
