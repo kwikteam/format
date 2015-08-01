@@ -37,12 +37,12 @@ plt.show()
 /metadata.json
 [/params.prm]
 
-/main/0/params.json  # basename of dat files
-/main/0/clusters.json
+/main/0/params.json  # refers to basename of dat files
+/main/0/clusters.json  # metadata about JSON
 /main/0/spike_times.npy
 /main/0/spike_clusters.npy
 /main/0/mean_waveforms.npy
-/main/0/raw_0.ns5
+/main/0/raw_0.ns5  # symlinks to ../20160101_1.ns5...
 /main/0/raw_1.dat
 
 /test/0/...
